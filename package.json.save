@@ -16,17 +16,11 @@
     "url": "https://github.com/Timothy7310/frontend-project-lvl1/issues"
   },
   "bin": {
-    "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js"
+    "brain-games": "bin/brain-games.js"
   },
   "type": "module",
   "homepage": "https://github.com/Timothy7310/frontend-project-lvl1#readme",
   "dependencies": {
     "readline-sync": "^1.4.10"
-  },
-  "devDependencies": {
-    "eslint": "^8.19.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
   }
 }

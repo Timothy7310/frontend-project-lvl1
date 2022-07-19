@@ -1,44 +1,40 @@
-import readlineSync from 'readline-sync';
+#!/usr/bin/env node
 
-const isEven = (num) => {
-  return num % 2 === 0;
-};
+import Game from '../src/index.js';
 
-const countOfAnswers = 3;
-
-const randomNumber = () => {
-  return Math.floor(Math.random() * 100);
-};
-
-const rightAnswer = (num) => {
-  if (isEven(num)) {
-    return 'yes';
+class EvenGame extends Game {
+  isEven(num) {
+    return num % 2 === 0;
   }
-  return 'no';
-};
 
-let answer;
-let num;
+  rightAnswer(num) {
+    if (this.isEven(num)) {
+      return 'yes';
+    }
+    return 'no';
+  }
 
-const brainEvenGame = (name) => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no"');
+  start() {
+    this.ruleMessage();
 
-  for (let i = 1; i <= countOfAnswers; i += 1) {
-    num = randomNumber();
+    for (let i = 0; i < this.countOfAnswers; i += 1) {
+      const num = this.randomNumber();
 
-    console.log(`Question: ${num}`);
-    answer = readlineSync.question('Your answer: ');
+      this.questionMessage(num);
+      const answer = this.getAnswer();
 
-    if (answer.toLowerCase() !== rightAnswer(num)) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer(num)}'`);
-      console.log(`Let's try again, ${name}!`);
-      return;
+      if (answer.toLowerCase() !== this.rightAnswer(num)) {
+        this.wrongMessage(answer, this.rightAnswer(num));
+        return;
+      }
+      this.rightMessage();
     }
 
-    console.log('Correct!');
+    this.finalMessage();
   }
+}
 
-  console.log(`Congratulations, ${name}!`);
-};
+const brainEven = new EvenGame(3, 'Answer "yes" if the number is even, otherwise answer "no".');
 
-export default brainEvenGame;
+brainEven.greeting();
+brainEven.start();

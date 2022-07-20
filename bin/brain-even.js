@@ -18,7 +18,7 @@ class EvenGame extends Game {
     this.ruleMessage();
 
     for (let i = 0; i < this.countOfAnswers; i += 1) {
-      const num = this.randomNumber();
+      const num = this.randomNumber(100);
 
       this.questionMessage(num);
       const answer = this.getAnswer();

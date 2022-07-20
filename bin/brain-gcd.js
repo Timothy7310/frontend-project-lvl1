@@ -19,8 +19,8 @@ class GCDGame extends Game {
     this.ruleMessage();
 
     for (let i = 0; i < this.countOfAnswers; i += 1) {
-      const num1 = this.randomNumber();
-      const num2 = this.randomNumber();
+      const num1 = this.randomNumber(100);
+      const num2 = this.randomNumber(100);
 
       this.questionMessage(num1, num2);
       const answer = this.getAnswer();

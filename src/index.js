@@ -14,8 +14,8 @@ class Game {
     console.log(`Hello, ${this.name}`);
   }
 
-  randomNumber() {
-    return Math.floor(Math.random() * 100);
+  randomNumber(n) {
+    return Math.floor(Math.random() * n);
   }
 
   getAnswer() {

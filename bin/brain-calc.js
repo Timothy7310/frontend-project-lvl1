@@ -26,8 +26,8 @@ class CalcGame extends Game {
     this.ruleMessage();
 
     for (let i = 0; i < this.countOfAnswers; i += 1) {
-      const num1 = this.randomNumber();
-      const num2 = this.randomNumber();
+      const num1 = this.randomNumber(100);
+      const num2 = this.randomNumber(100);
       const operator = this.randomOperator();
 
       this.questionMessage(num1, operator, num2);

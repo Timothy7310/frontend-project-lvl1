@@ -56,7 +56,7 @@ class ProgressionGame extends Game {
   }
 }
 
-const brainProgression = new ProgressionGame(3, 'Find the greatest common divisor of given numbers.', 10);
+const brainProgression = new ProgressionGame(3, 'What number is missing in the progression?', 10);
 
 brainProgression.greeting();
 brainProgression.start();
